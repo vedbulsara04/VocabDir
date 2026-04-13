@@ -6,6 +6,7 @@
 const API_BASE = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 // DOM Elements
+const appContainer  = document.getElementById('app-container');
 const searchForm    = document.getElementById('search-form');
 const searchInput   = document.getElementById('search-input');
 const loader        = document.getElementById('loader');
@@ -41,6 +42,7 @@ audioBtn.addEventListener('click', () => {
 // ---- Core: Fetch & Render ----
 async function lookupWord(word) {
     showLoader();
+    appContainer.classList.add('has-results');
 
     try {
         const res = await fetch(`${API_BASE}${encodeURIComponent(word)}`);
@@ -144,6 +146,7 @@ function renderResults(entry) {
 
     // Show results
     hideAll();
+    appContainer.classList.add('has-results');
     results.classList.remove('hidden');
 }
 

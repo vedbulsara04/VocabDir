@@ -111,11 +111,57 @@ body {
     z-index: 1;
     max-width: 680px;
     margin: 0 auto;
-    padding: 3rem 1.25rem 2rem;
+    padding: 0 1.25rem 2rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-text-dim);
+    z-index: 2;
+    transition: top var(--transition-normal);
+}
+
+.container.has-results .top-bar {
+    top: 1.5rem;
+    transform: translateX(-50%);
+}
+
+.top-bar a {
+    color: var(--color-accent-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.top-bar a:hover {
+    color: #fff;
+}
+
+/* --- Center Section (vertically centered when idle) --- */
+.center-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    justify-content: center;
+    transition: flex var(--transition-normal), justify-content var(--transition-normal);
+}
+
+.container.has-results .center-section {
+    flex: 0;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* --- Hero --- */
@@ -123,6 +169,11 @@ body {
     text-align: center;
     margin-bottom: 2.5rem;
     animation: fadeInDown 0.8s ease forwards;
+    transition: margin var(--transition-normal);
+}
+
+.container.has-results .hero {
+    margin-bottom: 1.5rem;
 }
 
 .logo {
@@ -160,7 +211,7 @@ body {
 /* --- Search Box --- */
 .search-section {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     animation: fadeInUp 0.8s ease 0.15s both;
 }
 
@@ -470,24 +521,7 @@ body {
     transform: translateY(0);
 }
 
-/* --- Footer --- */
-.footer {
-    margin-top: auto;
-    padding-top: 3rem;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--color-text-dim);
-}
 
-.footer a {
-    color: var(--color-accent-light);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.footer a:hover {
-    color: #fff;
-}
 
 /* --- Utilities --- */
 .hidden {
@@ -531,7 +565,7 @@ body {
 /* --- Responsive --- */
 @media (max-width: 640px) {
     .container {
-        padding: 2rem 1rem 1.5rem;
+        padding: 0 1rem 1.5rem;
     }
 
     .hero {
@@ -549,6 +583,6 @@ body {
 
 @media (min-width: 768px) {
     .container {
-        padding: 4.5rem 2rem 2rem;
+        padding: 0 2rem 2rem;
     }
 }
